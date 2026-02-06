@@ -1,0 +1,206 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "d5eda09b-55ff-441b-a259-18870aa64247",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "categoria": {
+      "name": "categoria",
+      "columns": {
+        "codigo": {
+          "name": "codigo",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "descricao": {
+          "name": "descricao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "categoria_tipo_tipo_categoria_codigo_fk": {
+          "name": "categoria_tipo_tipo_categoria_codigo_fk",
+          "tableFrom": "categoria",
+          "tableTo": "tipo_categoria",
+          "columnsFrom": [
+            "tipo"
+          ],
+          "columnsTo": [
+            "codigo"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "lancamento": {
+      "name": "lancamento",
+      "columns": {
+        "codigo": {
+          "name": "codigo",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "categoria": {
+          "name": "categoria",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "data": {
+          "name": "data",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "valor": {
+          "name": "valor",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "observacao": {
+          "name": "observacao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "lancamento_tipo_tipo_lancamento_codigo_fk": {
+          "name": "lancamento_tipo_tipo_lancamento_codigo_fk",
+          "tableFrom": "lancamento",
+          "tableTo": "tipo_lancamento",
+          "columnsFrom": [
+            "tipo"
+          ],
+          "columnsTo": [
+            "codigo"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        },
+        "lancamento_categoria_categoria_codigo_fk": {
+          "name": "lancamento_categoria_categoria_codigo_fk",
+          "tableFrom": "lancamento",
+          "tableTo": "categoria",
+          "columnsFrom": [
+            "categoria"
+          ],
+          "columnsTo": [
+            "codigo"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "tipo_categoria": {
+      "name": "tipo_categoria",
+      "columns": {
+        "codigo": {
+          "name": "codigo",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "descricao": {
+          "name": "descricao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "tipo_categoria_codigo_unique": {
+          "name": "tipo_categoria_codigo_unique",
+          "columns": [
+            "codigo"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "tipo_lancamento": {
+      "name": "tipo_lancamento",
+      "columns": {
+        "codigo": {
+          "name": "codigo",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "descricao": {
+          "name": "descricao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "parcelado": {
+          "name": "parcelado",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}
