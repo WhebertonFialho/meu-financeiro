@@ -1,4 +1,4 @@
-# Meu Fiananceiro
+# Meu Financeiro
 
 Este projeto foi desenvolvido utilizando **React Native** com **Expo CLI**.  
 Abaixo estão as instruções para instalação, execução em ambiente de desenvolvimento e geração do **APK de teste**.
